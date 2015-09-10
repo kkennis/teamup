@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/application.css">
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="/js/application.js"></script>
+  <title>Karaoke</title>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <span class="title"><a href="/">Karaoke</a></span>
+      <span><a href="/entries/new" class="signup button">Sign up to Karaoke</a></span>
+    </header>
+
+    <%= yield %>
+
+    <footer>
+      <span class="legal">Important Legal Information</span>
+    </footer>
+  </div>
+</body>
+</html>
