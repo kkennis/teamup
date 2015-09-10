@@ -1,3 +1,5 @@
 class User < ActiveRecord::Base
-  # Remember to create a migration!
+  has_many :teams
+  has_many :leagues, through: :teams
+  has_many :sports, through: :leagues
 end

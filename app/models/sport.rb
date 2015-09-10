@@ -1,3 +1,4 @@
 class Sport < ActiveRecord::Base
-  # Remember to create a migration!
+  has_many :leagues
+  has_many :teams, through: :leagues
 end
