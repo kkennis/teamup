@@ -1,9 +1,10 @@
 <div class="container">
   <h2>Team Up: Your Personal Sports News Manager</h2>
+
   <p>To get started, click 'Sign Up' or start browsing teams by sport:</p>
   <ul>
-    <% Sport.order(:name).each do |sport| %>
-      <li><a href=<%= "/sports/#{sport.id}" %>><%= sport.name %></a></li>
+    <% Sport.order(name: :desc).each do |sport| %>
+      <li><a href=<%= "/sports/#{sport.id}" %>><%= sport.name.capitalize %></a></li>
     <% end %>
   </ul>
 </div>
