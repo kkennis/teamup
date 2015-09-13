@@ -1,17 +1,50 @@
-sports = ["football", "baseball", "basketball"]
+football = Sport.create(name: "football")
 
+nfl = League.create(name: "NFL", 
+                    full_name: "National Football League", 
+                    sport_id: Sport.find_by(name: "football"))
 
-sports.each do |sport|
-  Sport.create(name: sport)
-end
+football.leagues << nfl
 
-teams = { "San Francisco" => ["49ers", "SF"], 
-          "New England" => ["Patriots", "NE"], 
-          "Green Bay" => ["Packers", "GB"],
-          "Carolina" => ["Panthers", "CAR"] }
+teams = { 
+          "Bills" => ["Buffalo", "BUF"],
+          "Dolphins" => ["Miami", "MIA"],
+          "Patriots" => ["New England", "NE"],
+          "Jets" => ["New York", "NYJ"],
+          "Ravens" => ["Baltimore", "BAL"],
+          "Bengals" => ["Cincinnati", "CIN"],
+          "Browns" => ["Cleveland", "CLE"],
+          "Steelers" => ["Pittsburgh", "PIT"],
+          "Texans" => ["Houston", "HOU"],
+          "Colts" => ["Indianapolis", "IND"],
+          "Jaguars" => ["Jacksonville", "JAX"],
+          "Titans" => ["Tennessee", "TEN"],
+          "Broncos" => ["Denver", "DEN"],
+          "Chiefs" => ["Kansas City", "KC"],
+          "Raiders" => ["Oakland", "OAK"],
+          "Chargers" => ["San Diego", "SD"],
+          "Cowboys" => ["Dallas", "DAL"],
+          "Giants" => ["New York", "NYG"],
+          "Eagles" => ["Philadelphia", "PHI"],
+          "Redskins" => ["Washington", "WAS"],
+          "Bears" => ["Chicago", "CHI"],
+          "Lions" => ["Detroit", "DET"],
+          "Packers" => ["Green Bay", "GB"],
+          "Vikings" => ["Minnesota", "MIN"],
+          "Falcons" => ["Atlanta", "ATL"],
+          "Panthers" => ["Carolina", "CAR"],
+          "Saints" => ["New Orleans", "NO"],
+          "Buccaneers" => ["Tampa Bay", "TB"],
+          "Cardinals" => ["Arizona", "ARI"],
+          "Rams" => ["St. Louis", "STL"],
+          "49ers" => ["San Francisco", "SF"],
+          "Seahawks" => ["Seattle", "SEA"]
+        }
 
-teams.each do |city, info|
-  new_team = Team.create(name: info.first, city: city, abbreviation: info.last, league_id: 1)
-  League.create(name: "NFL", full_name: "National Football League", sport_id: 1)
-  Sport.find(1).leagues.first.teams << new_team
+teams.each do |name, city_info|
+  new_team = Team.create(name: name,
+                         city: city_info.first, 
+                         abbreviation: city_info.last,
+                         league_id: nfl.id)
+  nfl.teams << new_team
 end
