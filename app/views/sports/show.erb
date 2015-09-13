@@ -3,8 +3,8 @@
 
   <h4><%= @sport.name.capitalize %></h4>
   <ul>
-    <% @sport.teams.order(name: :desc).each do |team| %>
-      <li><a href=<%= "/teams/#{team.id}" %>><%= "#{team.city.capitalize} #{team.name.capitalize}" %></a></li>
+    <% @sport.teams.order(:city).each do |team| %>
+      <li><a href=<%= "/teams/#{team.id}" %>><%= "#{team.city} #{team.name}" %></a></li>
     <% end %>
   </ul>
 </div>
