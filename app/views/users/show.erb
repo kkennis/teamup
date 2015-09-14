@@ -1,0 +1,24 @@
+<div class="container">
+  <h1>Welcome <%= @user.first_name %></h1>
+
+  <% if @user.teams.empty? %>
+    <h4>You have no teams yet. Add some!</h4>
+  <% else %>
+    <h4>Here are your teams:</h4>
+    <ul>
+      <% @user.teams.each do |team| %>
+        <li><a href=<%="/teams/#{team.id}" %>> <%= team.name %></a></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+
+
+
+  <a href="/sports">Add Teams</a> |
+  <a href="/logout">Log Out</a> |
+  <a href="/index">Back to Home</a>
+
+
+
+</div>

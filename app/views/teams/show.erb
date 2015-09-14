@@ -1,0 +1,19 @@
+<div class="container">
+  <h2>Team Up: Your Personal Sports News Manager</h2>
+
+  <h2><%= "#{@team.city} #{@team.name}" %></h3>
+
+  <% if session[:user_id] %>
+    <form method="post" action=<%= "/users/#{session[:user_id]}" %>>
+      <input type="hidden" name="_method" value="put">
+      <input type="hidden" name="team_id" value=<%= "#{@team.id}" %>>
+      <% if @user.teams.include?(@team) %>
+        <label for="action"><input type="radio" name="action" value="remove_team"> Remove Team</label>
+      <% else %>
+        <label for="action"><input type="radio" name="action" value="add_team"> Add Team</label>
+      <% end %>
+      <input type="submit" value="Update team preferences">
+    </form>
+  <% end %>
+
+</div>

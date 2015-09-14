@@ -48,3 +48,7 @@ teams.each do |name, city_info|
                          league_id: nfl.id)
   nfl.teams << new_team
 end
+
+User.create(first_name: "Kevin",
+            last_name: "Kennis",
+            )
