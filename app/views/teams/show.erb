@@ -2,7 +2,7 @@
   <h2>Team Up: Your Personal Sports News Manager</h2>
 
   <h2><%= "#{@team.city} #{@team.name}" %></h3>
-  <div class="stories" id="<%= @team.full_name.to_snake_case%>"></div>
+  <div class="stories <%= @team.full_name.to_snake_case%>"></div>
 
   <% if session[:user_id] %>
     <form method="post" action=<%= "/users/#{session[:user_id]}/edit" %>>

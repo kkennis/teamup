@@ -9,7 +9,8 @@
     <h4>Here are your teams:</h4>
     <ul>
       <% @user.teams.each do |team| %>
-        <li><a href=<%="/teams/#{team.id}" %>> <%= team.name %></a></li>
+        <li><h1><a href=<%="/teams/#{team.id}" %>> <%= team.name %></a></h1>
+          <div class="stories <%= team.full_name.to_snake_case%>"></div></li>
       <% end %>
     </ul>
   <% end %>
