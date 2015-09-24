@@ -1,7 +1,11 @@
 <main>
-  <h1>Team Up: Your Personal Sports News Manager</h1>
 
-  <h3>To get started, sign up, log in, or view our list of sports</h3> 
+  <% unless session[:user_id] %>
+    <h1>Team Up: Your Personal Sports News Manager</h1>
+    <h3>To get started, sign up, log in, or view our list of sports</h3>
+  <% else %> 
+    <h1>Browse Sports</h1>
+  <% end %>
 
   <ul>
     <% @sports.each do |sport| %>

@@ -1,4 +1,4 @@
-post '/users' do
+post '/login' do
 
     @user = User.find_by(username: params[:username])
     if @user && @user.password == params[:password]
@@ -36,6 +36,7 @@ end
 
 get '/users/:id' do
   @user = User.find(session[:user_id])
+  @user.teams
   erb :'users/show'
 end
 
@@ -48,6 +49,9 @@ get '/logout' do
   redirect '/'
 end
 
-put '/users/:id' do
-  redirect '/'
+put '/users/:id/edit' do
+  user = User.find(params[:id])
+  user.send(params[:action], params[:team_id])
+
+  redirect "/users/#{params[:id]}"
 end

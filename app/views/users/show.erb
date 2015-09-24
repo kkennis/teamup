@@ -1,4 +1,6 @@
 <div class="container">
+
+
   <h1>Welcome <%= @user.first_name %></h1>
 
   <% if @user.teams.empty? %>
@@ -13,12 +15,11 @@
   <% end %>
 
 
-
-
-  <a href="/sports">Add Teams</a> |
-  <a href="/logout">Log Out</a> |
-  <a href="/index">Back to Home</a>
-
+  <a href="/sports">Add Teams</a>
 
 
 </div>
+
+
+
+

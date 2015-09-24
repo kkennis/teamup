@@ -2,9 +2,10 @@
   <h2>Team Up: Your Personal Sports News Manager</h2>
 
   <h2><%= "#{@team.city} #{@team.name}" %></h3>
+  <div class="stories" id="<%= @team.full_name.to_snake_case%>"></div>
 
   <% if session[:user_id] %>
-    <form method="post" action=<%= "/users/#{session[:user_id]}" %>>
+    <form method="post" action=<%= "/users/#{session[:user_id]}/edit" %>>
       <input type="hidden" name="_method" value="put">
       <input type="hidden" name="team_id" value=<%= "#{@team.id}" %>>
       <% if @user.teams.include?(@team) %>

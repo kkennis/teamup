@@ -1,7 +1,18 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
+  var teams = [];
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+  $.ajax({
+    url: "https://www.kimonolabs.com/api/dp2fr06w?apikey=RVGH7NXcr496gz5BGNjs805SWZvp2ATs",
+    method: "GET",
+    dataType: "jsonp"
+  })
+  .done(function(data){
+    team_names = [];
+    $.map(data["results"]["nflTeams"], function(team, index){
+      team_names.push(team["teamName"]["text"]);
+    });
+    console.log(team_names);
+
+
+  });
 });

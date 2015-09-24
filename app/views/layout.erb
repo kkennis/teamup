@@ -13,12 +13,13 @@
   <div class="container">
     <header>
       <% if session[:user_id] %>
-        <span><a href=<%= "users/#{session[:user_id]}" %>>Your Teams</a></span>
-        <span><a href="/logout">Log Out</a></span>
+        <span><a href=<%= "/users/#{session[:user_id]}" %>>Your Teams</a></span> |
+        <span><a href="/logout">Log Out</a></span> |
       <% else %>
-        <span><a href="/users/new">Sign Up</a></span>
-        <span><a href="/login">Log In</a></span>
+        <span><a href="/users/new">Sign Up</a></span> |
+        <span><a href="/login">Log In</a></span> |
       <% end %>
+        <span><A href="/">Home</A></span>
     </header>
 
     <%= yield %>

@@ -12,7 +12,7 @@ body {
   height: 100%;
   color: white;
   background-color: #19ABB5;
-  background: url(../images/karaoke-background-teal.jpg);
+  background-image: url(../images/karaoke-background-teal.jpg);
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
