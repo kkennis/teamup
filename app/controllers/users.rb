@@ -2,14 +2,16 @@ post '/login' do
 
     @user = User.find_by(username: params[:username])
     if @user && @user.password == params[:password]
+      session[:errors] = nil
       session[:user_id] = @user.id
       session[:user_first_name] = @user.first_name
       redirect "users/#{session[:user_id]}"
       redirect '/'
     else
+      session[:errors] = "Invalid username and/or password"
       redirect '/login'
     end
-  
+
 end
 
 get '/users/new' do
@@ -23,12 +25,26 @@ post '/users/new' do
                    username: params[:username],
                    email: params[:email],
                   )
-  redirect 'users/new' if params[:password].empty?
+  if params[:password].empty?
+    p "*" * 80
+    p @user.errors
+    p "*" * 80
+
+    session[:errors] = @user.errors
+    redirect 'users/new'
+  end
   @user.password = params[:password]
   saved = @user.save
-  redirect 'users/new' unless saved
+  unless saved
+    p "*" * 80
+    p @user.errors
+    p "*" * 80
 
+    session[:errors] = @user.errors
+    redirect 'users/new'
+  end
 
+  session[:errors] = nil
   session[:user_id] = @user.id
   session[:user_first_name] = @user.first_name
   redirect "/users/#{@user.id}"

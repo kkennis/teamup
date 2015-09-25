@@ -1,5 +1,8 @@
 <div class="container">
   <h1>Welcome To MyChannel</h1>
+  <% if session[:errors] %>
+    <p class="errors">Invalid signup info</p>
+  <% end %>
   <h4>Sign Up Here</h4>
 
   <form method="post" action="/users/new">
@@ -10,9 +13,5 @@
     <input type="password" name="password" placeholder="Password">
     <input type="submit" value="Create Account">
   </form>
-
-  <a href="/index">Back to Home</a>
-
-
 
 </div>

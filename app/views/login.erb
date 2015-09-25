@@ -1,11 +1,14 @@
 <div class="container">
   <h1>Welcome to TeamUp!</h1>
+
+  <% if session[:errors] %>
+     <p class="errors"><%= session[:errors] %></p>
+  <% end %>
   <h4>Please log in:</h4>
   <form method="post" action="/login">
-    <input type="text" name="username" placeholder="password">
+    <input type="text" name="username" placeholder="username">
     <input type="password" name="password" placeholder="Password">
     <input type="submit" value="Log In">
   </form>
 
-  <a href="/index">Back to Home</a>
 </div>
