@@ -1,6 +1,6 @@
 <div class="container">
 
-  <h3><%= @sport.name.capitalize %></h3>
+  <h3 class="sport-title <%= @sport.name %>"><%= @sport.name.capitalize %></h3>
   <div class="list-group">
     <% @sport.teams.order(:city).each do |team| %>
       <a href=<%= "/teams/#{team.id}" %> class="list-group-item"><%= "#{team.city} #{team.name}" %></a>

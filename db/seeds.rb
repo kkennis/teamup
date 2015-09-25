@@ -8,9 +8,13 @@ nfl = League.create(name: "NFL",
 
 football.leagues << nfl
 
-mlb = League.create(name: "MLB",
+mlb = League.create!(name: "MLB",
                     full_name: "Major League Baseball",
                     sport_id: Sport.find_by(name: "baseball"))
+
+baseball.leagues << mlb
+
+
 
 nfl_teams = { 
           "Bills" => ["Buffalo", "BUF"],
@@ -80,7 +84,7 @@ mlb_teams = {
           "White Sox" => ["Chicago", "CWS"],
           "Royals" => ["Kansas City", "KC"],
           "Tigers" => ["Detroit", "DET"],
-          "Twins" => ["Minnesota", "MIN"].
+          "Twins" => ["Minnesota", "MIN"],
           "Yankees" => ["New York", "NYY"],
           "Red Sox" => ["Boston", "BOS"],
           "Orioles" => ["Baltimore", "BAL"],
@@ -89,7 +93,7 @@ mlb_teams = {
         }
 
 mlb_teams.each do |name, city_info|
-  new_team = Team.create(name: name,
+  new_team = Team.create!(name: name,
                          city: city_info.first, 
                          abbreviation: city_info.last,
                          league_id: mlb.id)

@@ -1,6 +1,6 @@
 <div class="container">
 
-  <h2><%= "#{@team.city} #{@team.name}" %></h2>
+  <h2 class="sport-title <%= @team.sport.name %>"><%= "#{@team.city} #{@team.name}" %></h2>
 
   <div class="panel panel-default">
     <div class="stories <%= @team.full_name.to_snake_case%> panel-body"></div>
