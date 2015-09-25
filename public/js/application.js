@@ -30,11 +30,6 @@ function getFootballStories(){
 
     var sport = ""
 
-    if (data["url"].indexOf("nfl") > -1) {
-      sport = "football"
-    } else if (data["url"].indexOf("mlb") > -1) {
-      sport = "baseball"
-    }
     
     $.map(data["results"]["nflTeams"], function(team, index){
       team_names.push(team["teamName"]["href"]);
@@ -43,7 +38,7 @@ function getFootballStories(){
     $.map(team_names, function(team_name, index){
       var team_class = team_name.split("/").pop().replace(/-/g,"_");
       if ($("div.stories").hasClass(team_class)){
-        getESPNStories(team_name, sport);
+        getESPNStories(team_name, "football");
       };
     });
   });
@@ -51,8 +46,12 @@ function getFootballStories(){
 }
 
 function getESPNStories(team_name, sport){
-  var url = "https://www.kimonolabs.com/api/ondemand/7ki3w3bq?apikey=RVGH7NXcr496gz5BGNjs805SWZvp2ATs"
-
+  var url = "";
+  if (sport = "football") {
+    url = "https://www.kimonolabs.com/api/7ki3w3bq?apikey=RVGH7NXcr496gz5BGNjs805SWZvp2ATs"
+  } else if (sport = "baseball") {
+    url = "https://www.kimonolabs.com/api/d1rs0uss?apikey=RVGH7NXcr496gz5BGNjs805SWZvp2ATs"
+  }
   var stories = $.ajax({
     url: "https://www.kimonolabs.com/api/7ki3w3bq?apikey=RVGH7NXcr496gz5BGNjs805SWZvp2ATs",
     method: "GET",
@@ -60,7 +59,7 @@ function getESPNStories(team_name, sport){
   })
   .done(function(data){
     var teamStories = data["results"]["nflStories"].filter((story) => story.url == team_name);
-    $.map(teamStories.slice(0,5), function(story){
+    $.map(teamStories, function(story){
       var team = story.url.split("/").pop().replace(/-/g,"_");
       $("div." + team).append("<p>ESPN - <a href='" + story.title.href + "'>" + story.title.text + "</a></p><hr>");
     })
@@ -68,17 +67,18 @@ function getESPNStories(team_name, sport){
 }
 
 function getBaseballStories(){
-  var team_names = [];
+  var team_names = [ ];
   var team_classes = [];
+
   
-  console.log("tryna ajax");
   $.ajax({
-    url: "http://www.kimonolabs.com/api/ondemand/dp2fr06w?apikey=RVGH7NXcr496gz5BGNjs805SWZvp2ATs&kimpath1=mlb",
+    url: "https://www.kimonolabs.com/api/bcrpvef0?apikey=RVGH7NXcr496gz5BGNjs805SWZvp2ATs",
     method: "GET",
     dataType: "jsonp"
   })
   .done(function(data){
     
+    console.log("baseballing");
     $.map(data["results"]["nflTeams"], function(team, index){
       team_names.push(team["teamName"]["href"]);
     });
@@ -86,11 +86,11 @@ function getBaseballStories(){
     $.map(team_names, function(team_name, index){
       var team_class = team_name.split("/").pop().replace(/-/g,"_");
       if ($("div.stories").hasClass(team_class)){
-        getESPNStories(team_name);
+        getESPNStories(team_name, "baseball");
       };
     });
   })
   .fail(function(){
-    console.log("response");
+    console.log("Request failed");
   })
 }

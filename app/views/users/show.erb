@@ -10,7 +10,7 @@
     <h4>Here are your teams:</h4>
       <% @user.teams.each do |team| %>
         <div class="panel panel-default">
-        <div class="panel-heading"><h1><a href=<%="/teams/#{team.id}" %>> <%= team.name %></a></h1></div>
+        <div class="panel-heading sport-title <%= team.sport.name %>"><h1><a href=<%="/teams/#{team.id}" %>> <%= team.name %></a></h1></div>
           <div class="stories user-page <%= team.full_name.to_snake_case%> panel-body"></div>
         </div>
       <% end %>
