@@ -1,22 +1,22 @@
 <div class="container">
 
 
-  <h1>Welcome <%= @user.first_name %></h1>
+  <h1>Welcome, <%= @user.first_name %></h1>
 
+  <button id="add-teams" class="btn btn-default"><a href="/sports">Add Teams</a></button>
   <% if @user.teams.empty? %>
     <h4>You have no teams yet. Add some!</h4>
   <% else %>
     <h4>Here are your teams:</h4>
-    <ul>
       <% @user.teams.each do |team| %>
-        <li><h1><a href=<%="/teams/#{team.id}" %>> <%= team.name %></a></h1>
-          <div class="stories <%= team.full_name.to_snake_case%>"></div></li>
+        <div class="panel panel-default">
+        <div class="panel-heading"><h1><a href=<%="/teams/#{team.id}" %>> <%= team.name %></a></h1></div>
+          <div class="stories user-page <%= team.full_name.to_snake_case%> panel-body"></div>
+        </div>
       <% end %>
-    </ul>
   <% end %>
 
 
-  <a href="/sports">Add Teams</a>
 
 
 </div>

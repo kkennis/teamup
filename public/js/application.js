@@ -1,6 +1,12 @@
 $(document).ready(function() {
   updateStories();
 
+  $("div.panel-heading").next(".user-page").slideUp("fast");
+
+  $("div.panel-heading").click(function(){
+    $(this).next(".user-page").slideToggle("slow");
+  });
+
 });
 
 
@@ -36,7 +42,6 @@ function getESPNStories(team_name){
     dataType: "jsonp"
   })
   .done(function(data){
-    console.log("We ajaxed!")
     var teamStories = data["results"]["nflStories"].filter((story) => story.url == team_name);
     $.map(teamStories.slice(0,5), function(story){
       var team = story.url.split("/").pop().replace(/-/g,"_");

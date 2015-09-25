@@ -1,32 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/normalize.css">
   <link rel="stylesheet" href="/css/application.css">
 
+
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <script src="/js/application.js"></script>
   <title>Team Up - Your Favorite Team Manager</title>
 </head>
 
 <body>
+  <h1 id="page-title">Team Up: Your Personal Sports News Manager</h1>
   <div class="container">
     <header>
+      <span><a href="/">Home</a></span>
       <% if session[:user_id] %>
-        <span><a href=<%= "/users/#{session[:user_id]}" %>>Your Teams</a></span> |
-        <span><a href="/logout">Log Out</a></span> |
+        <span><a href=<%= "/users/#{session[:user_id]}" %>>Your Teams</a></span>
+        <span><a href="/logout">Log Out</a></span>
       <% else %>
-        <span><a href="/users/new">Sign Up</a></span> |
-        <span><a href="/login">Log In</a></span> |
+        <span><a href="/users/new">Sign Up</a></span>
+        <span><a href="/login">Log In</a></span>
       <% end %>
-        <span><A href="/">Home</A></span>
     </header>
 
     <%= yield %>
 
-    <footer>
-      <span class="legal">Important Legal Information</span>
-    </footer>
   </div>
 </body>
 </html>

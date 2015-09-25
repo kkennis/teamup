@@ -1,10 +1,9 @@
 <div class="container">
-  <h1>Team Up: Your Personal Sports News Manager</h1>
 
-  <h4><%= @sport.name.capitalize %></h4>
-  <ul>
+  <h3><%= @sport.name.capitalize %></h3>
+  <div class="list-group">
     <% @sport.teams.order(:city).each do |team| %>
-      <li><a href=<%= "/teams/#{team.id}" %>><%= "#{team.city} #{team.name}" %></a></li>
+      <a href=<%= "/teams/#{team.id}" %> class="list-group-item"><%= "#{team.city} #{team.name}" %></a>
     <% end %>
-  </ul>
+  </div>
 </div>

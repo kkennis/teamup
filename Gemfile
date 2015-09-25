@@ -14,6 +14,7 @@ gem 'rake'
 gem 'bcrypt'
 
 gem 'shotgun'
+gem 'bleacher_api'
 
 group :test do
   gem 'shoulda-matchers'

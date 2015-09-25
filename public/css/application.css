@@ -10,43 +10,19 @@ html {
 
 body {
   height: 100%;
-  color: white;
-  background-color: #19ABB5;
-  background-image: url(../images/karaoke-background-teal.jpg);
-  background-attachment: fixed;
-  background-repeat: no-repeat;
+  background-image: url(../images/field-stripes.jpg);
   background-size: cover;
-}
-
-h1 {
-  font-size: 1.5em;
-  margin-bottom: 1em;
-}
-
-header {
-  overflow: auto;
-  padding-bottom: 1em;
-}
-
-footer {
-  padding: 2em 0;
-  position: absolute;
-  bottom: 0;
-}
-
-main {
-  padding-bottom: 3em;
+  background-repeat: none;
+  background-color: white;
 }
 
 a, a:visited {
-  color: #f7941e;
   text-decoration: none;
 }
 
-  a:hover {
-    text-decoration: underline;
-    color: #f26539;
-  }
+a:hover {
+  text-decoration: underline;
+}
 
 ul {
   list-style-type: none;
@@ -56,16 +32,20 @@ ul {
   position: relative;
   width: 100%;
   min-height: 100%;
-  max-width: 700px;
-  margin: 0 auto;
+  max-width: 1000px;
+  min-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5em;
+  margin-bottom: 5em;
   padding: 1em 5em;
-  background:rgba(0, 0, 0, 0.6);
+  background: #FAFAFA;
+  border-radius: 10px;
+  
 }
 
-
-label {
-  display: block;
-  padding-bottom: .5em;
+body > .container {
+  border: 1px solid black;
 }
 
 input {
@@ -78,13 +58,48 @@ input {
   border: 1px solid #828c91;
 }
 
-  input[type=submit] {
-    margin-top: 1em;
-    padding: 1.5em;
-    border: none;
-  }
+input[type=radio] {
+  display: inline;
+}
 
-  input:focus {
-    border-color: #10abb5;
-  }
+label {
+  display: inline;
+}
+
+header {
+  width: 116.3%;
+  text-align: center;
+  font-size: 2em;
+  background-color: #904616;
+  margin-top: -.5em;
+  margin-left: -2.5em;
+  margin-right: -2.5em;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+header a, header a:visited {
+  color: white;
+  font-weight: bold;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+header a:hover {
+  text-decoration: none;
+  color: #E0E0E0;
+}
+
+#add-teams {
+  float: right;
+  position: relative;
+  bottom: 1em;
+}
+
+#page-title {
+  color: white;
+  position: relative;
+  left: 12em;
+  top: 2em;
+}
 
