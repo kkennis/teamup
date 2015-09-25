@@ -140,7 +140,6 @@ header a:hover {
 
 .team-edit {
   background: #EEEEEE;
-  width: 1000px;
   display: inline;
   position: relative;
   bottom: .75em;
@@ -149,4 +148,12 @@ header a:hover {
 .team-edit input {
   display: inline;
   width: 10px;
+}
+
+.team-submit {
+  width: 300px;
+  float: right;
+  position: relative;
+  bottom: .75em;
+
 }
