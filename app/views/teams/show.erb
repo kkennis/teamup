@@ -11,11 +11,11 @@
       <input type="hidden" name="_method" value="put">
       <input type="hidden" name="team_id" value=<%= "#{@team.id}" %>>
       <% if @user.teams.include?(@team) %>
-        <label for="action"><input type="radio" name="action" value="remove_team"> Remove Team</label>
+        <label class="team-edit btn btn-default" for="action"><input type="radio" name="action" value="remove_team"> Remove Team</label>
       <% else %>
-        <label for="action"><input type="radio" name="action" value="add_team"> Add Team</label>
+        <label class="team-edit btn btn-default" for="action"><input type="radio" name="action" value="add_team"> Add Team</label>
       <% end %>
-      <input type="submit" value="Update team preferences">
+        <input type="submit" value="Update team preferences">
     </form>
   <% end %>
 

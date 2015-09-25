@@ -137,3 +137,16 @@ header a:hover {
 .errors {
   color: red;
 }
+
+.team-edit {
+  background: #EEEEEE;
+  width: 1000px;
+  display: inline;
+  position: relative;
+  bottom: .75em;
+}
+
+.team-edit input {
+  display: inline;
+  width: 10px;
+}
